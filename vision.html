@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Our Vision | Lakshya Educational Trust</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom config for navy blue theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#e8ecf1',
+                            100: '#cbd3e0',
+                            200: '#9eb0c4',
+                            300: '#708da8',
+                            400: '#436a8c',
+                            500: '#1a3a5c',
+                            600: '#152e4a',
+                            700: '#102338',
+                            800: '#0a1726',
+                            900: '#050c14',
+                        },
+                        accent: '#d4af37',
+                        'accent-light': '#f0e6c8',
+                        'warm-bg': '#f4f7fb',
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .vision-card-hover {
+            transition: all 0.3s ease;
+        }
+        .vision-card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -12px rgba(26, 58, 92, 0.2);
+            border-color: #d4af37;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #1a3a5c 0%, #0f2a44 100%);
+        }
+        .stat-card {
+            transition: transform 0.2s ease;
+        }
+        .stat-card:hover {
+            transform: scale(1.02);
+        }
+        .timeline-dot {
+            position: relative;
+        }
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            left: -22px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            background: #d4af37;
+            border-radius: 50%;
+            border: 2px solid #1a3a5c;
+        }
+    </style>
+</head>
+<body class="bg-warm-bg font-sans antialiased">
+
+    <!-- Navigation - Navy theme -->
+    <nav class="sticky top-0 z-50 bg-navy-700 shadow-lg px-5 py-3 md:px-8 flex justify-between items-center flex-wrap border-b-2 border-accent">
+        <div class="heading" title="Lakshya Educational Trust">
+            <h1 class="text-2xl md:text-3xl font-bold text-accent tracking-wide">Lakshya</h1>
+            <h2 class="text-xs md:text-sm font-medium text-navy-100 tracking-wider mt-0.5">Educational Trust</h2>
+        </div>
+        
+        <ul id="navList" class="hidden md:flex gap-6 lg:gap-8 items-center list-none">
+            <li class="font-semibold text-navy-100 hover:text-accent cursor-pointer transition-all duration-200">Home</li>
+            <li class="font-semibold text-navy-100 hover:text-accent cursor-pointer transition-all duration-200">About Us</li>
+            <li class="font-semibold text-navy-100 hover:text-accent cursor-pointer transition-all duration-200"><a href="mission.html">Our Mission</a></li>
+            <li class="font-semibold text-accent border-b-2 border-accent cursor-pointer transition-all duration-200"><a href="#vision-main">Our Vision</a></li>
+            <li class="font-semibold text-navy-100 hover:text-accent cursor-pointer transition-all duration-200">Gallery</li>
+            <li class="font-semibold text-navy-100 hover:text-accent cursor-pointer transition-all duration-200">Contact Us</li>
+        </ul>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden cursor-pointer flex flex-col gap-1.5" id="mobileMenuBtn">
+            <div class="w-7 h-0.5 bg-accent rounded-full"></div>
+            <div class="w-7 h-0.5 bg-accent rounded-full"></div>
+            <div class="w-7 h-0.5 bg-accent rounded-full"></div>
+        </div>
+    </nav>
+
+    <!-- Mobile dropdown menu -->
+    <div id="mobileDropdown" class="md:hidden hidden bg-navy-800 px-5 pb-4 shadow-lg rounded-b-2xl transition-all border-t border-navy-600">
+        <ul class="flex flex-col gap-3 list-none">
+            <li class="font-semibold text-navy-100 hover:text-accent py-2 border-b border-navy-600 cursor-pointer">Home</li>
+            <li class="font-semibold text-navy-100 hover:text-accent py-2 border-b border-navy-600 cursor-pointer">About Us</li>
+            <li class="font-semibold text-navy-100 hover:text-accent py-2 border-b border-navy-600 cursor-pointer"><a href="mission.html">Our Mission</a></li>
+            <li class="font-semibold text-accent py-2 border-b border-navy-600 cursor-pointer"><a href="#vision-main">Our Vision</a></li>
+            <li class="font-semibold text-navy-100 hover:text-accent py-2 border-b border-navy-600 cursor-pointer">Gallery</li>
+            <li class="font-semibold text-navy-100 hover:text-accent py-2 cursor-pointer">Contact Us</li>
+        </ul>
+    </div>
+
+    <main class="max-w-7xl mx-auto px-5 md:px-8 py-8 md:py-12" id="vision-main">
+        
+        <!-- Hero Section with Dummy Image -->
+        <div class="relative rounded-3xl overflow-hidden mb-16 shadow-xl">
+            <img src="https://picsum.photos/id/147/1400/400" alt="Bright future for youth" class="w-full h-64 md:h-96 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-navy-900/85 to-navy-700/65 flex items-center">
+                <div class="px-6 md:px-12 text-white max-w-3xl">
+                    <h1 class="text-4xl md:text-6xl font-bold text-accent mb-4">✦ Our Vision ✦</h1>
+                    <p class="text-lg md:text-xl text-navy-100 leading-relaxed">Imagining a society where every young person has the courage, knowledge, and opportunity to become an architect of positive change.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vision Statement Banner -->
+        <div class="gold-gradient rounded-2xl p-8 md:p-10 mb-16 shadow-xl text-center">
+            <i class="fas fa-eye text-5xl text-accent mb-4"></i>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Our Vision 2030</h2>
+            <p class="text-xl text-navy-100 max-w-4xl mx-auto leading-relaxed">To build an India where quality education is a fundamental right, not a privilege; where systemic corruption is replaced by radical transparency; and where every youth, regardless of background, becomes a fearless catalyst for social justice.</p>
+        </div>
+
+        <!-- Stats / Future Goals Row -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-16">
+            <div class="bg-white rounded-xl p-5 text-center shadow-md border-b-4 border-accent stat-card">
+                <i class="fas fa-school-circle-check text-3xl text-navy-600 mb-2"></i>
+                <div class="text-3xl md:text-4xl font-bold text-navy-700">50+</div>
+                <p class="text-gray-600 text-sm">Model Govt Schools by 2030</p>
+            </div>
+            <div class="bg-white rounded-xl p-5 text-center shadow-md border-b-4 border-accent stat-card">
+                <i class="fas fa-book text-3xl text-navy-600 mb-2"></i>
+                <div class="text-3xl md:text-4xl font-bold text-navy-700">100+</div>
+                <p class="text-gray-600 text-sm">Free Community Libraries</p>
+            </div>
+            <div class="bg-white rounded-xl p-5 text-center shadow-md border-b-4 border-accent stat-card">
+                <i class="fas fa-user-graduate text-3xl text-navy-600 mb-2"></i>
+                <div class="text-3xl md:text-4xl font-bold text-navy-700">50,000+</div>
+                <p class="text-gray-600 text-sm">Youth Empowered Annually</p>
+            </div>
+            <div class="bg-white rounded-xl p-5 text-center shadow-md border-b-4 border-accent stat-card">
+                <i class="fas fa-balance-scale text-3xl text-navy-600 mb-2"></i>
+                <div class="text-3xl md:text-4xl font-bold text-navy-700">Zero</div>
+                <p class="text-gray-600 text-sm">Tolerance for Corruption</p>
+            </div>
+        </div>
+
+        <!-- Core Vision Pillars - 3 Long Term Goals -->
+        <h2 class="text-3xl md:text-4xl font-bold text-navy-800 text-center mb-6">Three Pillars of Our Vision</h2>
+        <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">Our long-term vision rests on three transformative pillars that guide every decision and action we take.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <!-- Pillar 1 -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-accent vision-card-hover">
+                <div class="text-5xl mb-4 text-accent"><i class="fas fa-graduation-cap"></i></div>
+                <h3 class="text-2xl font-bold text-navy-700 mb-3">Educational Revolution</h3>
+                <p class="text-gray-600 leading-relaxed mb-3">We envision a future where every government school becomes a center of excellence — with functioning libraries, digital labs, trained teachers, and zero corruption. No child should be denied quality education due to poverty or administrative apathy.</p>
+                <p class="text-gray-600 leading-relaxed">Our goal is to transform 50 government schools into model institutions by 2030, complete with transparent fund utilization, community participation, and holistic development programs.</p>
+            </div>
+            <!-- Pillar 2 -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-accent vision-card-hover">
+                <div class="text-5xl mb-4 text-accent"><i class="fas fa-hand-fist"></i></div>
+                <h3 class="text-2xl font-bold text-navy-700 mb-3">Corruption-Free Governance</h3>
+                <p class="text-gray-600 leading-relaxed mb-3">We dream of a system where public officials are genuinely accountable, RTI is a tool of empowerment rather than a battle, and corrupt practices are met with swift legal action. Transparency must become the default, not an exception.</p>
+                <p class="text-gray-600 leading-relaxed">Through legal advocacy and citizen vigilance networks, we aim to create a model of participatory governance that can be replicated across Delhi and beyond.</p>
+            </div>
+            <!-- Pillar 3 -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-accent vision-card-hover">
+                <div class="text-5xl mb-4 text-accent"><i class="fas fa-leaf"></i></div>
+                <h3 class="text-2xl font-bold text-navy-700 mb-3">Sustainable & Just Society</h3>
+                <p class="text-gray-600 leading-relaxed mb-3">Environmental protection and social justice are inseparable. We envision green and clean resettlement colonies with safe public spaces, waste management systems, and environmental awareness embedded in school curricula.</p>
+                <p class="text-gray-600 leading-relaxed">Our vision includes large-scale tree plantations, river conservation projects, and empowering slum communities to become champions of environmental sustainability.</p>
+            </div>
+        </div>
+
+        <!-- Detailed Vision Content Block with Dummy Image -->
+        <div class="mb-16">
+            <div class="flex flex-col md:flex-row-reverse gap-8 items-center bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="md:w-1/2">
+                    <img src="https://picsum.photos/id/69/600/400" alt="Youth empowerment rally" class="w-full h-64 md:h-full object-cover">
+                </div>
+                <div class="md:w-1/2 p-6 md:p-8">
+                    <h2 class="text-2xl md:text-3xl font-bold text-navy-800 mb-4">The India We Are Building</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">We see a future where a young girl from Kalyanpuri can dream of becoming an IAS officer without facing discrimination, where a first-generation learner has access to free coaching and career guidance, and where the term "government school" evokes pride rather than pity.</p>
+                    <p class="text-gray-700 leading-relaxed mb-4">Our vision extends beyond immediate relief — it's about structural transformation. We work towards creating replicable models of change that can inspire youth-led movements across the country. When one library is successfully established, we document the process; when one corruption case is won, we share the legal strategy.</p>
+                    <p class="text-gray-700 leading-relaxed">By 2030, we envision Lakshya not as a single organization but as a nationwide network of young change-makers, each taking ownership of their community's development.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Long Road: 5-Year Milestones (Timeline Style) -->
+        <div class="bg-navy-50 rounded-2xl p-6 md:p-8 mb-16 shadow-md">
+            <h3 class="text-2xl md:text-3xl font-bold text-navy-800 mb-6 flex items-center gap-3">
+                <i class="fas fa-road text-accent"></i> Our Roadmap to 2030
+            </h3>
+            <div class="space-y-6 pl-4 md:pl-8 border-l-2 border-accent">
+                <div class="relative timeline-dot pl-4">
+                    <h4 class="text-xl font-bold text-navy-700">2024-2025: Consolidation Phase</h4>
+                    <p class="text-gray-600">Strengthen existing 8 free libraries, launch 5 new community learning centers, and formalize youth leadership curriculum. Expand legal aid cell to handle 50+ new RTI cases annually.</p>
+                </div>
+                <div class="relative timeline-dot pl-4">
+                    <h4 class="text-xl font-bold text-navy-700">2026-2027: Expansion Phase</h4>
+                    <p class="text-gray-600">Establish 25 new free libraries across three Delhi districts. Train 5,000 youth in spoken English and digital literacy. Partner with 30 government schools for transparency audits.</p>
+                </div>
+                <div class="relative timeline-dot pl-4">
+                    <h4 class="text-xl font-bold text-navy-700">2028-2029: Replication Phase</h4>
+                    <p class="text-gray-600">Create open-source toolkit for youth-led social audits. Mentor 100 new community leaders in NCR. Launch environmental justice program in 20 low-income colonies.</p>
+                </div>
+                <div class="relative timeline-dot pl-4">
+                    <h4 class="text-xl font-bold text-navy-700">2030: Vision Fulfillment</h4>
+                    <p class="text-gray-600">Achieve 50 model government schools, 100 free libraries, and a self-sustaining network of 10,000 youth volunteers. Advocate for state-level policy on mandatory transparency in public institutions.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Values That Drive Our Vision -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div class="bg-white rounded-xl p-6 shadow-md">
+                <i class="fas fa-heart text-3xl text-accent mb-3"></i>
+                <h3 class="text-xl font-bold text-navy-700 mb-2">Unwavering Integrity</h3>
+                <p class="text-gray-600 leading-relaxed">We will never accept funding that compromises our independence. Our vision is rooted in absolute honesty — we say what we do and do what we say. This integrity has earned us the community's trust over 15 years.</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 shadow-md">
+                <i class="fas fa-users text-3xl text-accent mb-3"></i>
+                <h3 class="text-xl font-bold text-navy-700 mb-2">Community Ownership</h3>
+                <p class="text-gray-600 leading-relaxed">We don't work for communities — we work with them. Our vision succeeds only when local youth take leadership roles. Every library, every campaign, every legal battle is co-owned by the people we serve.</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 shadow-md">
+                <i class="fas fa-chart-line text-3xl text-accent mb-3"></i>
+                <h3 class="text-xl font-bold text-navy-700 mb-2">Systemic Change</h3>
+                <p class="text-gray-600 leading-relaxed">We don't stop at individual help. Our vision targets root causes: corrupt policies, broken accountability mechanisms, and unequal resource distribution. We aim to rewrite the rules, not just work around them.</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 shadow-md">
+                <i class="fas fa-lightbulb text-3xl text-accent mb-3"></i>
+                <h3 class="text-xl font-bold text-navy-700 mb-2">Fearless Innovation</h3>
+                <p class="text-gray-600 leading-relaxed">From using RTI in creative ways to organizing community hearings, we constantly innovate. Our vision embraces new technologies, legal strategies, and grassroots methods to maximize impact.</p>
+            </div>
+        </div>
+
+        <!-- Dummy Image Banner with Vision Quote -->
+        <div class="relative rounded-2xl overflow-hidden my-12 shadow-xl">
+            <img src="https://picsum.photos/id/155/1400/350" alt="Hands together for change" class="w-full h-56 md:h-72 object-cover">
+            <div class="absolute inset-0 bg-navy-900/75 flex items-center justify-center p-6">
+                <div class="text-center text-white max-w-3xl">
+                    <i class="fas fa-quote-left text-4xl text-accent mb-4"></i>
+                    <p class="text-xl md:text-2xl font-semibold leading-relaxed">"लक्ष्य केवल एक संस्था नहीं, बल्कि एक विचार है – परिवर्तन बाहर से नहीं, भीतर से शुरू होता है। जब युवा जागते हैं, तब समाज बदलता है।"</p>
+                    <p class="mt-4 text-accent font-medium">— Vision Statement, Lakshya Educational Trust</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action / Join the Vision -->
+        <div class="gold-gradient rounded-2xl p-8 md:p-10 text-center shadow-xl mt-8">
+            <i class="fas fa-hand-peace text-5xl text-accent mb-4"></i>
+            <h3 class="text-2xl md:text-3xl font-bold text-white mb-3">Be Part of This Vision</h3>
+            <p class="text-navy-100 text-lg max-w-2xl mx-auto mb-6">Our vision becomes reality when more youth step forward. Whether you volunteer an hour, donate a book, or simply spread awareness — you become a changemaker.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="bg-accent text-navy-800 font-bold px-6 py-3 rounded-full shadow-lg hover:bg-yellow-500 transition-all"><i class="fas fa-hands-helping mr-2"></i> Volunteer With Us</button>
+                <button class="bg-transparent border-2 border-accent text-accent font-bold px-6 py-3 rounded-full hover:bg-accent/10 transition-all"><i class="fas fa-book-open mr-2"></i> Donate Books/Library</button>
+            </div>
+            <p class="text-navy-200 text-sm mt-6">Together, we will build a future where no dream is too big, and no voice is too small.</p>
+        </div>
+
+        <!-- Final Inspirational Footer -->
+        <div class="text-center bg-white rounded-3xl py-8 px-6 border border-navy-200 shadow-md mt-12">
+            <i class="fas fa-star-of-life text-3xl text-accent mb-3"></i>
+            <p class="text-gray-700 max-w-3xl mx-auto leading-relaxed">"हम आपको केवल दर्शक बने रहने का निमंत्रण नहीं देते। हम आपको इस परिवर्तन यात्रा में सहभागी बनने का आमंत्रण देते हैं। आइए-मिलकर एक ऐसा समाज बनाएँ जहाँ शिक्षा अवसर बने, ईमानदारी ताकत बने और हर युवा यह कह सके – <strong class="text-navy-700">मैं बदलाव का इंतजार नहीं करूँगा, मैं स्वयं बदलाव बनूँगा।</strong>"</p>
+            <p class="mt-5 text-accent font-semibold">— संजू, संस्थापक, "लक्ष्य – युवाओं को नयी दिशा"</p>
+        </div>
+    </main>
+
+        <footer class="bg-navy-800 text-white pt-12 pb-6">
+        <div class="container mx-auto px-5 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="mb-4">
+                        <h2 class="text-2xl font-bold text-accent">Lakshya</h2>
+                        <p class="text-xs text-navy-300 mt-0.5">Educational Trust</p>
+                    </div>
+                    <p class="text-navy-200 text-sm leading-relaxed mb-4">Empowering youth through education, transparency, and social justice since 2009.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="social-icon text-navy-300 hover:text-accent"><i class="fab fa-facebook-f text-lg"></i></a>
+                        <a href="#" class="social-icon text-navy-300 hover:text-accent"><i class="fab fa-twitter text-lg"></i></a>
+                        <a href="#" class="social-icon text-navy-300 hover:text-accent"><i class="fab fa-instagram text-lg"></i></a>
+                        <a href="#" class="social-icon text-navy-300 hover:text-accent"><i class="fab fa-linkedin-in text-lg"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-accent mb-4 border-b border-navy-600 pb-2 inline-block">Quick Links</h3>
+                    <ul class="mt-3 space-y-2">
+                        <li><a href="index.html" class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i class="fas fa-home text-xs text-accent"></i> Home</a></li>
+                        <li><a href="about.html" class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i class="fas fa-info-circle text-xs text-accent"></i> About Us</a></li>
+                        <li><a href="mission.html" class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i class="fas fa-bullseye text-xs text-accent"></i> Our Mission</a></li>
+                        <li><a href="vision.html" class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i class="fas fa-eye text-xs text-accent"></i> Our Vision</a></li>
+                        <li><a href="gallery.html" class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i class="fas fa-images text-xs text-accent"></i> Gallery</a></li>
+                        <li><a href="contact.html" class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i class="fas fa-envelope text-xs text-accent"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-accent mb-4 border-b border-navy-600 pb-2 inline-block">Our Focus</h3>
+                    <ul class="mt-3 space-y-2">
+                        <li class="flex items-start gap-2 text-navy-200 text-sm"><i class="fas fa-chalkboard-user text-accent text-xs mt-1"></i> Youth Leadership</li>
+                        <li class="flex items-start gap-2 text-navy-200 text-sm"><i class="fas fa-school text-accent text-xs mt-1"></i> School Transparency</li>
+                        <li class="flex items-start gap-2 text-navy-200 text-sm"><i class="fas fa-book-open text-accent text-xs mt-1"></i> Free Libraries</li>
+                        <li class="flex items-start gap-2 text-navy-200 text-sm"><i class="fas fa-gavel text-accent text-xs mt-1"></i> Legal Aid & RTI</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-accent mb-4 border-b border-navy-600 pb-2 inline-block">Get in Touch</h3>
+                    <ul class="mt-3 space-y-3">
+                        <li class="flex items-start gap-3 text-navy-200 text-sm"><i class="fas fa-map-marker-alt text-accent mt-1"></i> Ward No. 55, Pratibha Nagar, Near Shyam Mandir, Churu, Rajasthan - 331001</li>
+                        <li class="flex items-start gap-3 text-navy-200 text-sm"><i class="fas fa-map-marker-alt text-accent mt-1"></i> Kalyanpuri, Delhi - 110091</li>
+                        <li class="flex items-start gap-3 text-navy-200 text-sm"><i class="fas fa-phone-alt text-accent mt-1"></i> +91 98765 43210</li>
+                        <li class="flex items-start gap-3 text-navy-200 text-sm"><i class="fas fa-envelope text-accent mt-1"></i> info@lakshyaeducationaltrust.org</li>
+                        <li class="flex items-start gap-3 text-navy-200 text-sm"><i class="fas fa-clock text-accent mt-1"></i> Mon - Sat: 10 AM - 6 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-navy-700 pt-6 mt-4 flex flex-col md:flex-row justify-between items-center text-navy-400 text-xs">
+                <p>&copy; 2024 Lakshya Educational Trust. All rights reserved.</p>
+                <div class="flex gap-4 mt-2 md:mt-0">
+                    <a href="#" class="hover:text-accent transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-accent transition">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileDropdown = document.getElementById('mobileDropdown');
+        if (mobileBtn && mobileDropdown) {
+            mobileBtn.addEventListener('click', () => {
+                mobileDropdown.classList.toggle('hidden');
+            });
+        }
+        // Smooth scroll for vision link and close mobile menu
+        document.querySelectorAll('a[href="#vision-main"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('vision-main').scrollIntoView({ behavior: 'smooth' });
+                if (mobileDropdown) mobileDropdown.classList.add('hidden');
+            });
+        });
+        // Also handle any internal nav clicks for mobile
+        const mobileNavLinks = document.querySelectorAll('#mobileDropdown a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileDropdown) mobileDropdown.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

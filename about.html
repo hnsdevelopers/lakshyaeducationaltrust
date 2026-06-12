@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>About Us | Lakshya Educational Trust</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom config for navy blue theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#e8ecf1',
+                            100: '#cbd3e0',
+                            200: '#9eb0c4',
+                            300: '#708da8',
+                            400: '#436a8c',
+                            500: '#1a3a5c',
+                            600: '#152e4a',
+                            700: '#102338',
+                            800: '#0a1726',
+                            900: '#050c14',
+                        },
+                        accent: '#d4af37',
+                        'accent-light': '#f0e6c8',
+                        'warm-bg': '#f4f7fb',
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .about-card {
+            transition: all 0.3s ease;
+        }
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(26, 58, 92, 0.15);
+        }
+        .footer-link-hover {
+            transition: all 0.2s ease;
+        }
+        .footer-link-hover:hover {
+            color: #d4af37;
+            transform: translateX(3px);
+        }
+        .social-icon {
+            transition: all 0.2s ease;
+        }
+        .social-icon:hover {
+            transform: translateY(-3px);
+            color: #d4af37 !important;
+        }
+        .timeline-dot {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 10px;
+            height: 10px;
+            background: #d4af37;
+            border-radius: 50%;
+            border: 2px solid #1a3a5c;
+        }
+    </style>
+</head>
+<body class="bg-warm-bg font-sans antialiased">
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="sticky top-0 z-50 bg-navy-700 shadow-lg px-5 py-3 md:px-8 flex justify-between items-center flex-wrap border-b-2 border-accent">
+        <a href="index.html" class="heading" title="Lakshya Educational Trust">
+            <h1 class="text-2xl md:text-3xl font-bold text-accent tracking-wide">Lakshya</h1>
+            <h2 class="text-xs md:text-sm font-medium text-navy-100 tracking-wider mt-0.5">Educational Trust</h2>
+        </a>
+        
+        <ul id="navList" class="hidden md:flex gap-6 lg:gap-8 items-center list-none">
+            <li><a href="index.html" class="font-semibold text-navy-100 hover:text-accent transition-all duration-200">Home</a></li>
+            <li><a href="about.html" class="font-semibold text-accent border-b-2 border-accent transition-all duration-200">About Us</a></li>
+            <li><a href="mission.html" class="font-semibold text-navy-100 hover:text-accent transition-all duration-200">Our Mission</a></li>
+            <li><a href="vision.html" class="font-semibold text-navy-100 hover:text-accent transition-all duration-200">Our Vision</a></li>
+            <li><a href="gallery.html" class="font-semibold text-navy-100 hover:text-accent transition-all duration-200">Gallery</a></li>
+            <li><a href="contact.html" class="font-semibold text-navy-100 hover:text-accent transition-all duration-200">Contact Us</a></li>
+        </ul>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden cursor-pointer flex flex-col gap-1.5" id="mobileMenuBtn">
+            <div class="w-7 h-0.5 bg-accent rounded-full"></div>
+            <div class="w-7 h-0.5 bg-accent rounded-full"></div>
+            <div class="w-7 h-0.5 bg-accent rounded-full"></div>
+        </div>
+    </nav>
+
+    <!-- Mobile dropdown menu -->
+    <div id="mobileDropdown" class="md:hidden hidden bg-navy-800 px-5 pb-4 shadow-lg rounded-b-2xl transition-all border-t border-navy-600">
+        <ul class="flex flex-col gap-3 list-none">
+            <li><a href="index.html" class="font-semibold text-navy-100 hover:text-accent py-2 border-b border-navy-600 block">Home</a></li>
+            <li><a href="about.html" class="font-semibold text-accent py-2 border-b border-navy-600 block">About Us</a></li>
+            <li><a href="mission.html" class="font-semibold text-navy-100 hover:text-accent py-2 border-b border-navy-600 block">Our Mission</a></li>
+            <li><a href="vision.html" class="font-semibold text-navy-100 hover:text-accent py-2 border-b border-navy-600 block">Our Vision</a></li>
+            <li><a href="gallery.html" class="font-semibold text-navy-100 hover:text-accent py-2 border-b border-navy-600 block">Gallery</a></li>
+            <li><a href="contact.html" class="font-semibold text-navy-100 hover:text-accent py-2 block">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- ==================== HERO SECTION ==================== -->
+        <section class="relative h-80 md:h-96 flex items-center">
+            <img src="aboutLakshya.jpg" alt="Community gathering" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-navy-900/85 to-navy-800/70"></div>
+            <div class="relative z-10 max-w-4xl mx-auto px-6 text-center text-white">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">About <span class="text-accent">Lakshya</span></h1>
+                <p class="text-lg md:text-xl text-navy-100">15 years of unwavering commitment to youth empowerment, social justice, and systemic change.</p>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 1: WHO WE ARE (Image + Text Side by Side) ==================== -->
+        <section class="py-16 px-5 max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-10 items-center">
+                <div class="md:w-1/2">
+                    <img src="lakshyagroup.jpg" alt="Lakshya team working with community" class="rounded-2xl shadow-xl w-full object-cover h-80 md:h-96">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-navy-800 mb-4">Who We <span class="text-accent">Are</span></h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">Lakshya Educational Trust (registered as <strong class="text-navy-700">"लक्ष्य – युवाओं को नयी दिशा"</strong>) is a grassroots organization founded in 2009. We work in the resettlement colonies of East Delhi — Kalyanpuri, Trilokpuri, and surrounding areas — where poverty, lack of infrastructure, and corruption have long denied basic rights to residents.</p>
+                    <p class="text-gray-700 leading-relaxed">What began with 22 young volunteers has grown into a movement that challenges systemic injustice, empowers marginalized communities, and creates lasting change through education, legal action, and community participation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 2: FOUNDER'S STORY (Image + Text with Points) ==================== -->
+        <section class="py-16 px-5 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row-reverse gap-10 items-center">
+                    <div class="md:w-1/2">
+                        <img src="SanjuPhoto.PNG" alt="Founder Sanju with community" class="rounded-2xl shadow-xl w-full object-cover h-80 md:h-96">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl md:text-4xl font-bold text-navy-800 mb-4">Founder's <span class="text-accent">Journey</span></h2>
+                        <p class="text-gray-700 leading-relaxed mb-4">Sanju, the founder of Lakshya, was born in Delhi and raised in a low-income family. His experiences with inequality and corruption inspired him to take action.</p>
+                        <div class="space-y-3 mt-4">
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-accent text-lg mt-0.5"></i>
+                                <p class="text-gray-700"><strong class="text-navy-700">2009:</strong> Started with 22 young volunteers in Kalyanpuri</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-accent text-lg mt-0.5"></i>
+                                <p class="text-gray-700"><strong class="text-navy-700">2011:</strong> Registered "लक्ष्य – युवाओं को नयी दिशा" with Delhi Government</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-accent text-lg mt-0.5"></i>
+                                <p class="text-gray-700"><strong class="text-navy-700">Core Belief:</strong> "न झुकना है, न बिकना है, और न रुकना है" (Never bow, never sell out, never stop)</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-accent text-lg mt-0.5"></i>
+                                <p class="text-gray-700"><strong class="text-navy-700">Education:</strong> Pursuing Bachelors in Social Work from IGNOU while running the organization</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 3: OUR HISTORY - TIMELINE WITH POINTS ==================== -->
+        <section class="py-16 px-5 max-w-7xl mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-navy-800">Our <span class="text-accent">Journey</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-3">15 years of struggle, resilience, and transformative impact</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-navy-50 rounded-2xl p-6 shadow-md">
+                    <h3 class="text-xl font-bold text-accent mb-4"><i class="fas fa-flag-checkered mr-2"></i> 2009 - 2011: The Beginning</h3>
+                    <ul class="space-y-3">
+                        <li class="timeline-dot text-gray-700">Started free English spoken classes with just 10 students</li>
+                        <li class="timeline-dot text-gray-700">Conducted meetings in parks and public spaces due to lack of infrastructure</li>
+                        <li class="timeline-dot text-gray-700">Focused on youth awareness and basic education support</li>
+                    </ul>
+                </div>
+                <div class="bg-navy-50 rounded-2xl p-6 shadow-md">
+                    <h3 class="text-xl font-bold text-accent mb-4"><i class="fas fa-building mr-2"></i> 2011 - 2014: Formal Registration & Growth</h3>
+                    <ul class="space-y-3">
+                        <li class="timeline-dot text-gray-700">Registered with Delhi Government as "लक्ष्य – युवाओं को नयी दिशा"</li>
+                        <li class="timeline-dot text-gray-700">English classes expanded to 150+ students with 6 daily batches</li>
+                        <li class="timeline-dot text-gray-700">Started using RTI as a tool for transparency and accountability</li>
+                    </ul>
+                </div>
+                <div class="bg-navy-50 rounded-2xl p-6 shadow-md">
+                    <h3 class="text-xl font-bold text-accent mb-4"><i class="fas fa-chart-line mr-2"></i> 2014 - 2019: Solo Struggle & Legal Battles</h3>
+                    <ul class="space-y-3">
+                        <li class="timeline-dot text-gray-700">Most team members left due to personal commitments</li>
+                        <li class="timeline-dot text-gray-700">Founder continued alone, fighting corruption cases in courts</li>
+                        <li class="timeline-dot text-gray-700">Successfully forced DTC to deploy 30+ buses on Route No. 33 for women's safety</li>
+                        <li class="timeline-dot text-gray-700">Exposed corruption in government schools and public libraries</li>
+                    </ul>
+                </div>
+                <div class="bg-navy-50 rounded-2xl p-6 shadow-md">
+                    <h3 class="text-xl font-bold text-accent mb-4"><i class="fas fa-award mr-2"></i> 2020 - Present: Recognition & Expansion</h3>
+                    <ul class="space-y-3">
+                        <li class="timeline-dot text-gray-700">Established multiple free community libraries</li>
+                        <li class="timeline-dot text-gray-700">Resumed free English spoken classes with new trainers</li>
+                        <li class="timeline-dot text-gray-700">Published "लक्ष्य का सफर" documenting 15 years of journey</li>
+                        <li class="timeline-dot text-gray-700">Expanded focus to environmental conservation and women's rights</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 4: KEY HIGHLIGHTS / ACHIEVEMENTS (Points with Icons) ==================== -->
+        <section class="py-16 px-5 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-navy-800">Key <span class="text-accent">Achievements</span></h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto mt-3">Milestones that define our impact on the ground</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="flex items-start gap-4 p-4 bg-warm-bg rounded-xl about-card">
+                        <i class="fas fa-bus text-3xl text-accent"></i>
+                        <div>
+                            <h3 class="font-bold text-navy-700">Women's Safety on Route 33</h3>
+                            <p class="text-gray-600 text-sm">Forced DTC to deploy 30+ government buses, benefiting 50,000+ daily commuters</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 bg-warm-bg rounded-xl about-card">
+                        <i class="fas fa-school text-3xl text-accent"></i>
+                        <div>
+                            <h3 class="font-bold text-navy-700">School Reforms</h3>
+                            <p class="text-gray-600 text-sm">Exposed corruption and forced reopening of locked toilets in government schools</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 bg-warm-bg rounded-xl about-card">
+                        <i class="fas fa-book-open text-3xl text-accent"></i>
+                        <div>
+                            <h3 class="font-bold text-navy-700">Free Libraries</h3>
+                            <p class="text-gray-600 text-sm">Established 8 community libraries with competitive exam resources</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 bg-warm-bg rounded-xl about-card">
+                        <i class="fas fa-language text-3xl text-accent"></i>
+                        <div>
+                            <h3 class="font-bold text-navy-700">English Empowerment</h3>
+                            <p class="text-gray-600 text-sm">Trained 1,200+ underprivileged youth in spoken English and soft skills</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 bg-warm-bg rounded-xl about-card">
+                        <i class="fas fa-gavel text-3xl text-accent"></i>
+                        <div>
+                            <h3 class="font-bold text-navy-700">Legal Victories</h3>
+                            <p class="text-gray-600 text-sm">200+ RTIs filed, multiple corrupt officials suspended, court orders secured</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 bg-warm-bg rounded-xl about-card">
+                        <i class="fas fa-newspaper text-3xl text-accent"></i>
+                        <div>
+                            <h3 class="font-bold text-navy-700">Media Recognition</h3>
+                            <p class="text-gray-600 text-sm">Featured in Amar Ujala, Asian Age for community impact</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 5: OUR VALUES (Detailed Points) ==================== -->
+        <section class="py-16 px-5 max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-10 items-center">
+                <div class="md:w-1/2 order-2 md:order-1">
+                    <h2 class="text-3xl md:text-4xl font-bold text-navy-800 mb-4">Our Core <span class="text-accent">Values</span></h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-heart text-accent text-xl mt-1"></i>
+                            <div><strong class="text-navy-700">Integrity First:</strong> Never accepted government or corporate funding to maintain independence</div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-users text-accent text-xl mt-1"></i>
+                            <div><strong class="text-navy-700">Community Ownership:</strong> All initiatives are co-owned and led by local residents</div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-balance-scale text-accent text-xl mt-1"></i>
+                            <div><strong class="text-navy-700">Fearless Justice:</strong> We question power without hesitation, even at personal risk</div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-chalkboard-user text-accent text-xl mt-1"></i>
+                            <div><strong class="text-navy-700">Youth Leadership:</strong> Young people are not beneficiaries — they are change-makers</div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-search text-accent text-xl mt-1"></i>
+                            <div><strong class="text-navy-700">Radical Transparency:</strong> Every action, every rupee, every decision is open to public scrutiny</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 order-1 md:order-2">
+                    <img src="lakshyaLibrary.jpg" alt="Values and principles" class="rounded-2xl shadow-xl w-full object-cover h-80 md:h-96">
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 6: HOW WE ARE DIFFERENT (Bullet Points with Side Image) ==================== -->
+        <section class="py-16 px-5 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row gap-10 items-center">
+                    <div class="md:w-1/2">
+                        <img src="ews.jpg" alt="Community meeting" class="rounded-2xl shadow-xl w-full object-cover h-80 md:h-96">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl md:text-4xl font-bold text-navy-800 mb-4">What Makes Us <span class="text-accent">Different</span></h2>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3"><i class="fas fa-times-circle text-red-500 text-lg mt-1"></i> <span class="text-gray-700"><strong class="text-navy-700">Zero External Funding:</strong> We have never taken a single rupee from any government or large donor agency — complete independence</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-accent text-lg mt-1"></i> <span class="text-gray-700"><strong class="text-navy-700">Grassroots to Courtroom:</strong> We don't just talk — we file RTIs, go to courts, and ensure legal action</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-accent text-lg mt-1"></i> <span class="text-gray-700"><strong class="text-navy-700">Sustained Commitment:</strong> 15 years of continuous presence in the same communities</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-accent text-lg mt-1"></i> <span class="text-gray-700"><strong class="text-navy-700">Documented Impact:</strong> Every success, every failure, every lesson is documented in "लक्ष्य का सफर"</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 7: TEAM & SUPPORTERS ==================== -->
+        <section class="py-16 px-5 max-w-7xl mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-navy-800">Our <span class="text-accent">Supporters</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-3">Individuals who have stood by us unconditionally</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-navy-50 rounded-2xl p-6 text-center about-card">
+                    <i class="fas fa-female text-4xl text-accent mb-3"></i>
+                    <h3 class="font-bold text-navy-700">Shrimati Jeeto Devi</h3>
+                    <p class="text-gray-600 text-sm">Mother & Silent Strength</p>
+                    <p class="text-xs text-gray-500 mt-2">"Her unwavering support through 15 years of struggle has been the biggest pillar of Lakshya."</p>
+                </div>
+                <div class="bg-navy-50 rounded-2xl p-6 text-center about-card">
+                    <i class="fas fa-gavel text-4xl text-accent mb-3"></i>
+                    <h3 class="font-bold text-navy-700">Shri Sanjay Bharadwaj</h3>
+                    <p class="text-gray-600 text-sm">Advocate, Supreme Court</p>
+                    <p class="text-xs text-gray-500 mt-2">Provided crucial legal direction and pro-bono support for historic education reforms in Delhi.</p>
+                </div>
+                <div class="bg-navy-50 rounded-2xl p-6 text-center about-card">
+                    <i class="fas fa-chalkboard text-4xl text-accent mb-3"></i>
+                    <h3 class="font-bold text-navy-700">Nimisha Bhagat</h3>
+                    <p class="text-gray-600 text-sm">English Language Trainer</p>
+                    <p class="text-xs text-gray-500 mt-2">Revived free spoken English classes, bringing new energy and direction to youth education.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== COMMON FOOTER ==================== -->
+    <footer class="bg-navy-800 text-white pt-12 pb-6">
+        <div class="container mx-auto px-5 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="mb-4">
+                        <h2 class="text-2xl font-bold text-accent">Lakshya</h2>
+                        <p class="text-xs text-navy-300 mt-0.5">Educational Trust</p>
+                    </div>
+                    <p class="text-navy-200 text-sm leading-relaxed mb-4">Empowering youth through education, transparency, and social justice since 2009.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="social-icon text-navy-300 hover:text-accent"><i class="fab fa-facebook-f text-lg"></i></a>
+                        <a href="#" class="social-icon text-navy-300 hover:text-accent"><i class="fab fa-twitter text-lg"></i></a>
+                        <a href="#" class="social-icon text-navy-300 hover:text-accent"><i class="fab fa-instagram text-lg"></i></a>
+                        <a href="#" class="social-icon text-navy-300 hover:text-accent"><i class="fab fa-linkedin-in text-lg"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-accent mb-4 border-b border-navy-600 pb-2 inline-block">Quick Links</h3>
+                    <ul class="mt-3 space-y-2">
+                        <li><a href="index.html" class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i class="fas fa-home text-xs text-accent"></i> Home</a></li>
+                        <li><a href="about.html" class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i class="fas fa-info-circle text-xs text-accent"></i> About Us</a></li>
+                        <li><a href="mission.html" class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i class="fas fa-bullseye text-xs text-accent"></i> Our Mission</a></li>
+                        <li><a href="vision.html" class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i class="fas fa-eye text-xs text-accent"></i> Our Vision</a></li>
+                        <li><a href="gallery.html" class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i class="fas fa-images text-xs text-accent"></i> Gallery</a></li>
+                        <li><a href="contact.html" class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i class="fas fa-envelope text-xs text-accent"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-accent mb-4 border-b border-navy-600 pb-2 inline-block">Our Focus</h3>
+                    <ul class="mt-3 space-y-2">
+                        <li class="flex items-start gap-2 text-navy-200 text-sm"><i class="fas fa-chalkboard-user text-accent text-xs mt-1"></i> Youth Leadership</li>
+                        <li class="flex items-start gap-2 text-navy-200 text-sm"><i class="fas fa-school text-accent text-xs mt-1"></i> School Transparency</li>
+                        <li class="flex items-start gap-2 text-navy-200 text-sm"><i class="fas fa-book-open text-accent text-xs mt-1"></i> Free Libraries</li>
+                        <li class="flex items-start gap-2 text-navy-200 text-sm"><i class="fas fa-gavel text-accent text-xs mt-1"></i> Legal Aid & RTI</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-accent mb-4 border-b border-navy-600 pb-2 inline-block">Get in Touch</h3>
+                    <ul class="mt-3 space-y-3">
+                        <li class="flex items-start gap-3 text-navy-200 text-sm"><i class="fas fa-map-marker-alt text-accent mt-1"></i> Ward No. 55, Pratibha Nagar, Near Shyam Mandir, Churu, Rajasthan - 331001</li>
+                        <li class="flex items-start gap-3 text-navy-200 text-sm"><i class="fas fa-map-marker-alt text-accent mt-1"></i> Kalyanpuri, Delhi - 110091</li>
+                        <li class="flex items-start gap-3 text-navy-200 text-sm"><i class="fas fa-phone-alt text-accent mt-1"></i> +91 98765 43210</li>
+                        <li class="flex items-start gap-3 text-navy-200 text-sm"><i class="fas fa-envelope text-accent mt-1"></i> info@lakshyaeducationaltrust.org</li>
+                        <li class="flex items-start gap-3 text-navy-200 text-sm"><i class="fas fa-clock text-accent mt-1"></i> Mon - Sat: 10 AM - 6 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-navy-700 pt-6 mt-4 flex flex-col md:flex-row justify-between items-center text-navy-400 text-xs">
+                <p>&copy; 2024 Lakshya Educational Trust. All rights reserved.</p>
+                <div class="flex gap-4 mt-2 md:mt-0">
+                    <a href="#" class="hover:text-accent transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-accent transition">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile menu toggle script -->
+    <script>
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileDropdown = document.getElementById('mobileDropdown');
+        if (mobileBtn && mobileDropdown) {
+            mobileBtn.addEventListener('click', () => {
+                mobileDropdown.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>

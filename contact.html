@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Contact Us | Lakshya Educational Trust</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom config for navy blue theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#e8ecf1',
+                            100: '#cbd3e0',
+                            200: '#9eb0c4',
+                            300: '#708da8',
+                            400: '#436a8c',
+                            500: '#1a3a5c',
+                            600: '#152e4a',
+                            700: '#102338',
+                            800: '#0a1726',
+                            900: '#050c14',
+                        },
+                        accent: '#d4af37',
+                        'accent-light': '#f0e6c8',
+                        'warm-bg': '#f4f7fb',
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .contact-card {
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -12px rgba(26, 58, 92, 0.15);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .footer-link-hover {
+            transition: all 0.2s ease;
+        }
+
+        .footer-link-hover:hover {
+            color: #d4af37;
+            transform: translateX(3px);
+        }
+
+        .social-icon {
+            transition: all 0.2s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            color: #d4af37 !important;
+        }
+
+        .map-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-warm-bg font-sans antialiased">
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav
+        class="sticky top-0 z-50 bg-navy-700 shadow-lg px-5 py-3 md:px-8 flex justify-between items-center flex-wrap border-b-2 border-accent">
+        <a href="index.html" class="heading" title="Lakshya Educational Trust">
+            <h1 class="text-2xl md:text-3xl font-bold text-accent tracking-wide">Lakshya</h1>
+            <h2 class="text-xs md:text-sm font-medium text-navy-100 tracking-wider mt-0.5">Educational Trust</h2>
+        </a>
+
+        <ul id="navList" class="hidden md:flex gap-6 lg:gap-8 items-center list-none">
+            <li><a href="index.html"
+                    class="font-semibold text-navy-100 hover:text-accent transition-all duration-200">Home</a></li>
+            <li><a href="about.html"
+                    class="font-semibold text-navy-100 hover:text-accent transition-all duration-200">About Us</a></li>
+            <li><a href="mission.html"
+                    class="font-semibold text-navy-100 hover:text-accent transition-all duration-200">Our Mission</a>
+            </li>
+            <li><a href="vision.html"
+                    class="font-semibold text-navy-100 hover:text-accent transition-all duration-200">Our Vision</a>
+            </li>
+            <li><a href="gallery.html"
+                    class="font-semibold text-navy-100 hover:text-accent transition-all duration-200">Gallery</a></li>
+            <li><a href="contact.html"
+                    class="font-semibold text-accent border-b-2 border-accent transition-all duration-200">Contact
+                    Us</a></li>
+        </ul>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden cursor-pointer flex flex-col gap-1.5" id="mobileMenuBtn">
+            <div class="w-7 h-0.5 bg-accent rounded-full"></div>
+            <div class="w-7 h-0.5 bg-accent rounded-full"></div>
+            <div class="w-7 h-0.5 bg-accent rounded-full"></div>
+        </div>
+    </nav>
+
+    <!-- Mobile dropdown menu -->
+    <div id="mobileDropdown"
+        class="md:hidden hidden bg-navy-800 px-5 pb-4 shadow-lg rounded-b-2xl transition-all border-t border-navy-600">
+        <ul class="flex flex-col gap-3 list-none">
+            <li><a href="index.html"
+                    class="font-semibold text-navy-100 hover:text-accent py-2 border-b border-navy-600 block">Home</a>
+            </li>
+            <li><a href="about.html"
+                    class="font-semibold text-navy-100 hover:text-accent py-2 border-b border-navy-600 block">About
+                    Us</a></li>
+            <li><a href="mission.html"
+                    class="font-semibold text-navy-100 hover:text-accent py-2 border-b border-navy-600 block">Our
+                    Mission</a></li>
+            <li><a href="vision.html"
+                    class="font-semibold text-navy-100 hover:text-accent py-2 border-b border-navy-600 block">Our
+                    Vision</a></li>
+            <li><a href="gallery.html"
+                    class="font-semibold text-navy-100 hover:text-accent py-2 border-b border-navy-600 block">Gallery</a>
+            </li>
+            <li><a href="contact.html" class="font-semibold text-accent py-2 block">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- ==================== HERO SECTION ==================== -->
+        <section class="relative h-64 md:h-80 flex items-center">
+            <img src="https://picsum.photos/id/96/1920/500" alt="Contact us banner"
+                class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-navy-900/85 to-navy-800/70"></div>
+            <div class="relative z-10 max-w-4xl mx-auto px-6 text-center text-white">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Contact <span class="text-accent">Us</span></h1>
+                <p class="text-lg md:text-xl text-navy-100">Reach out to us — whether you want to volunteer, donate, or
+                    simply learn more about our work.</p>
+            </div>
+        </section>
+
+        <!-- ==================== CONTACT INFO CARDS ==================== -->
+        <section class="py-12 px-5 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1: Address -->
+                <div class="bg-white rounded-2xl p-6 text-center shadow-md border-b-4 border-accent contact-card">
+                    <div class="w-16 h-16 bg-navy-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-2xl text-navy-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-700 mb-2">Our Address</h3>
+                    <p class="text-gray-600">B-540/4 RAJVIR COLONY GHAROLI EXTN , Mayur Vihar, EAST (Delhi) - 110096</p>
+                </div>
+                <!-- Card 2: Phone -->
+                <div class="bg-white rounded-2xl p-6 text-center shadow-md border-b-4 border-accent contact-card">
+                    <div class="w-16 h-16 bg-navy-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-phone-alt text-2xl text-navy-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-700 mb-2">Call Us</h3>
+                    <p class="text-gray-600">+91 98918 28125</p>
+                </div>
+                <!-- Card 3: Email -->
+                <div class="bg-white rounded-2xl p-6 text-center shadow-md border-b-4 border-accent contact-card">
+                    <div class="w-16 h-16 bg-navy-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-envelope text-2xl text-navy-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-700 mb-2">Email Us</h3>
+                    <p class="text-gray-600">info@lakshyaeducationaltrust.org<br>support@lakshyaeducationaltrust.org</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CONTACT FORM & MAP SECTION ==================== -->
+        <section class="py-12 px-5 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <!-- Contact Form -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                    <h2 class="text-2xl md:text-3xl font-bold text-navy-800 mb-2">Send us a <span
+                            class="text-accent">Message</span></h2>
+                    <p class="text-gray-500 mb-6">Fill out the form below and we'll get back to you within 48 hours.</p>
+
+                    <form id="contactForm" class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-navy-700 font-semibold mb-2 text-sm">Full Name <span
+                                        class="text-red-500">*</span></label>
+                                <input type="text" id="name"
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-xl focus:border-accent transition-all"
+                                    placeholder="Your full name" required>
+                            </div>
+                            <div>
+                                <label class="block text-navy-700 font-semibold mb-2 text-sm">Email Address <span
+                                        class="text-red-500">*</span></label>
+                                <input type="email" id="email"
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-xl focus:border-accent transition-all"
+                                    placeholder="your@email.com" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-navy-700 font-semibold mb-2 text-sm">Phone Number</label>
+                            <input type="tel" id="phone"
+                                class="form-input w-full px-4 py-3 border border-gray-300 rounded-xl focus:border-accent transition-all"
+                                placeholder="+91 XXXXX XXXXX">
+                        </div>
+                        <div>
+                            <label class="block text-navy-700 font-semibold mb-2 text-sm">Subject <span
+                                    class="text-red-500">*</span></label>
+                            <select id="subject"
+                                class="form-input w-full px-4 py-3 border border-gray-300 rounded-xl focus:border-accent transition-all bg-white">
+                                <option value="">Select a subject</option>
+                                <option value="volunteer">I want to volunteer</option>
+                                <option value="donate">I want to donate books / resources</option>
+                                <option value="inquiry">General inquiry</option>
+                                <option value="collaboration">Partnership / Collaboration</option>
+                                <option value="feedback">Feedback / Suggestion</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-navy-700 font-semibold mb-2 text-sm">Message <span
+                                    class="text-red-500">*</span></label>
+                            <textarea id="message" rows="5"
+                                class="form-input w-full px-4 py-3 border border-gray-300 rounded-xl focus:border-accent transition-all"
+                                placeholder="Tell us how you'd like to help or ask your question..."
+                                required></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-accent text-navy-800 font-bold py-3 rounded-xl hover:bg-yellow-500 transition-all shadow-md">
+                            <i class="fas fa-paper-plane mr-2"></i> Send Message
+                        </button>
+                        <p id="formStatus" class="text-center text-sm mt-3 hidden"></p>
+                    </form>
+                </div>
+
+                <!-- Google Map & Timing -->
+                <div class="space-y-6">
+                    <!-- Map -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                        <div class="map-container h-64 md:h-72">
+                            <iframe src="https://maps.google.com/maps?q=28.3107457,74.9684578&z=15&output=embed"
+                                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Working Hours -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-navy-800 mb-4 flex items-center gap-2">
+                            <i class="fas fa-clock text-accent"></i> Working Hours
+                        </h3>
+                        <div class="space-y-2">
+                            <div class="flex justify-between py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Monday - Friday</span>
+                                <span class="font-semibold text-navy-700">10:00 AM - 5:00 PM</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Saturday</span>
+                                <span class="font-semibold text-navy-700">10:00 AM - 5:00 PM</span>
+                            </div>
+                            <div class="flex justify-between py-2">
+                                <span class="text-gray-600">Sunday</span>
+                                <span class="font-semibold text-red-500">Closed</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-3 bg-navy-50 rounded-xl">
+                            <p class="text-sm text-navy-700"><i class="fas fa-info-circle text-accent mr-2"></i> Our
+                                office is open to visitors. Please call ahead to schedule a meeting with our team.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== WAYS TO SUPPORT / GET INVOLVED ==================== -->
+        <section class="py-12 px-5 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-navy-800">Ways to <span class="text-accent">Get
+                            Involved</span></h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto mt-3">Your support can make a real difference in the lives
+                        of underprivileged youth.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center p-6 rounded-xl hover:shadow-md transition-all">
+                        <div class="w-20 h-20 bg-navy-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-hands-helping text-3xl text-navy-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-700 mb-2">Volunteer With Us</h3>
+                        <p class="text-gray-600 text-sm">Join our team of dedicated volunteers. Teach English, help with
+                            library management, or assist in our campaigns.</p>
+                    </div>
+                    <div class="text-center p-6 rounded-xl hover:shadow-md transition-all">
+                        <div class="w-20 h-20 bg-navy-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-book text-3xl text-navy-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-700 mb-2">Donate Books & Resources</h3>
+                        <p class="text-gray-600 text-sm">We accept donations of new/used books (competitive exam
+                            materials, novels, children's books), stationery, and furniture.</p>
+                    </div>
+                    <div class="text-center p-6 rounded-xl hover:shadow-md transition-all">
+                        <div class="w-20 h-20 bg-navy-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chalkboard-user text-3xl text-navy-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-700 mb-2">Become a Mentor</h3>
+                        <p class="text-gray-600 text-sm">Professionals and educators can mentor our youth in career
+                            guidance, spoken English, or digital literacy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== FAQ / GETTING HERE ==================== -->
+        <section class="py-12 px-5 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-navy-50 rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-navy-800 mb-4 flex items-center gap-2">
+                        <i class="fas fa-question-circle text-accent"></i> Frequently Asked Questions
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="font-semibold text-navy-700">How can I volunteer?</p>
+                            <p class="text-gray-600 text-sm">Fill out the contact form with subject "Volunteer" and
+                                we'll reach out with opportunities.</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-navy-700">Do you accept monetary donations?</p>
+                            <p class="text-gray-600 text-sm">Lakshya operates without external funding. However, for
+                                major initiatives, we can provide details upon inquiry.</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-navy-700">How do I reach the office?</p>
+                            <p class="text-gray-600 text-sm">We are located in Rajvir Colony, East Delhi. Nearest metro: IP
+                                Extension (Blue Line), then take an auto-rickshaw.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-navy-50 rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-navy-800 mb-4 flex items-center gap-2">
+                        <i class="fas fa-share-alt text-accent"></i> Connect With Us
+                    </h3>
+                    <p class="text-gray-600 mb-4">Follow us on social media for updates, success stories, and upcoming
+                        events.</p>
+                    <div class="flex gap-4 mb-6">
+                        <a href="#"
+                            class="w-12 h-12 bg-navy-700 rounded-full flex items-center justify-center text-white hover:bg-accent hover:text-navy-800 transition-all"><i
+                                class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="#"
+                            class="w-12 h-12 bg-navy-700 rounded-full flex items-center justify-center text-white hover:bg-accent hover:text-navy-800 transition-all"><i
+                                class="fab fa-twitter text-xl"></i></a>
+                        <a href="#"
+                            class="w-12 h-12 bg-navy-700 rounded-full flex items-center justify-center text-white hover:bg-accent hover:text-navy-800 transition-all"><i
+                                class="fab fa-instagram text-xl"></i></a>
+                        <a href="#"
+                            class="w-12 h-12 bg-navy-700 rounded-full flex items-center justify-center text-white hover:bg-accent hover:text-navy-800 transition-all"><i
+                                class="fab fa-linkedin-in text-xl"></i></a>
+                        <a href="#"
+                            class="w-12 h-12 bg-navy-700 rounded-full flex items-center justify-center text-white hover:bg-accent hover:text-navy-800 transition-all"><i
+                                class="fab fa-youtube text-xl"></i></a>
+                    </div>
+                    <div class="mt-4 p-3 bg-white rounded-xl">
+                        <p class="text-sm text-navy-700"><i class="fas fa-envelope text-accent mr-2"></i> For bulk
+                            inquiries or partnerships, email us directly at <strong
+                                class="text-accent">partners@lakshyaeducationaltrust.org</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== COMMON FOOTER ==================== -->
+    <footer class="bg-navy-800 text-white pt-12 pb-6">
+        <div class="container mx-auto px-5 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="mb-4">
+                        <h2 class="text-2xl font-bold text-accent">Lakshya</h2>
+                        <p class="text-xs text-navy-300 mt-0.5">Educational Trust</p>
+                    </div>
+                    <p class="text-navy-200 text-sm leading-relaxed mb-4">Empowering youth through education,
+                        transparency, and social justice since 2009.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="social-icon text-navy-300 hover:text-accent"><i
+                                class="fab fa-facebook-f text-lg"></i></a>
+                        <a href="#" class="social-icon text-navy-300 hover:text-accent"><i
+                                class="fab fa-twitter text-lg"></i></a>
+                        <a href="#" class="social-icon text-navy-300 hover:text-accent"><i
+                                class="fab fa-instagram text-lg"></i></a>
+                        <a href="#" class="social-icon text-navy-300 hover:text-accent"><i
+                                class="fab fa-linkedin-in text-lg"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-accent mb-4 border-b border-navy-600 pb-2 inline-block">Quick
+                        Links</h3>
+                    <ul class="mt-3 space-y-2">
+                        <li><a href="index.html"
+                                class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i
+                                    class="fas fa-home text-xs text-accent"></i> Home</a></li>
+                        <li><a href="about.html"
+                                class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i
+                                    class="fas fa-info-circle text-xs text-accent"></i> About Us</a></li>
+                        <li><a href="mission.html"
+                                class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i
+                                    class="fas fa-bullseye text-xs text-accent"></i> Our Mission</a></li>
+                        <li><a href="vision.html"
+                                class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i
+                                    class="fas fa-eye text-xs text-accent"></i> Our Vision</a></li>
+                        <li><a href="gallery.html"
+                                class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i
+                                    class="fas fa-images text-xs text-accent"></i> Gallery</a></li>
+                        <li><a href="contact.html"
+                                class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i
+                                    class="fas fa-envelope text-xs text-accent"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-accent mb-4 border-b border-navy-600 pb-2 inline-block">Our
+                        Focus</h3>
+                    <ul class="mt-3 space-y-2">
+                        <li class="flex items-start gap-2 text-navy-200 text-sm"><i
+                                class="fas fa-chalkboard-user text-accent text-xs mt-1"></i> Youth Leadership</li>
+                        <li class="flex items-start gap-2 text-navy-200 text-sm"><i
+                                class="fas fa-school text-accent text-xs mt-1"></i> School Transparency</li>
+                        <li class="flex items-start gap-2 text-navy-200 text-sm"><i
+                                class="fas fa-book-open text-accent text-xs mt-1"></i> Free Libraries</li>
+                        <li class="flex items-start gap-2 text-navy-200 text-sm"><i
+                                class="fas fa-gavel text-accent text-xs mt-1"></i> Legal Aid & RTI</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-accent mb-4 border-b border-navy-600 pb-2 inline-block">Get in
+                        Touch</h3>
+                    <ul class="mt-3 space-y-3">
+                        <li class="flex items-start gap-3 text-navy-200 text-sm"><i
+                                class="fas fa-map-marker-alt text-accent mt-1"></i> Ward No. 55, Pratibha Nagar, Near
+                            Shyam Mandir, Churu, Rajasthan - 331001</li>
+                        <li class="flex items-start gap-3 text-navy-200 text-sm"><i
+                                class="fas fa-map-marker-alt text-accent mt-1"></i> B-540/4 RAJVIR COLONY GHAROLI EXTN , Mayur Vihar, EAST (Delhi) - 110096</li>
+                        <li class="flex items-start gap-3 text-navy-200 text-sm"><i
+                                class="fas fa-phone-alt text-accent mt-1"></i> +91 98918 28125</li>
+                        <li class="flex items-start gap-3 text-navy-200 text-sm"><i
+                                class="fas fa-envelope text-accent mt-1"></i> info@lakshyaeducationaltrust.org</li>
+                        <li class="flex items-start gap-3 text-navy-200 text-sm"><i
+                                class="fas fa-clock text-accent mt-1"></i> Mon - Sat: 10 AM - 6 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="border-t border-navy-700 pt-6 mt-4 flex flex-col md:flex-row justify-between items-center text-navy-400 text-xs">
+                <p>&copy; 2024 Lakshya Educational Trust. All rights reserved.</p>
+                <div class="flex gap-4 mt-2 md:mt-0">
+                    <a href="#" class="hover:text-accent transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-accent transition">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Form submission handler -->
+    <script>
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileDropdown = document.getElementById('mobileDropdown');
+        if (mobileBtn && mobileDropdown) {
+            mobileBtn.addEventListener('click', () => {
+                mobileDropdown.classList.toggle('hidden');
+            });
+        }
+
+        // Contact form handling
+        const form = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                // Get values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+
+                // Validate
+                if (!name || !email || !subject || !message) {
+                    formStatus.textContent = '❌ Please fill in all required fields.';
+                    formStatus.classList.remove('hidden', 'text-green-600');
+                    formStatus.classList.add('text-red-500');
+                    return;
+                }
+
+                // Simulate form submission (in production, send to backend)
+                formStatus.textContent = '📧 Sending message...';
+                formStatus.classList.remove('hidden', 'text-red-500');
+                formStatus.classList.add('text-accent');
+
+                // Simulate network delay
+                setTimeout(() => {
+                    formStatus.textContent = '✓ Message sent successfully! We will get back to you soon.';
+                    formStatus.classList.remove('text-accent', 'text-red-500');
+                    formStatus.classList.add('text-green-600');
+                    form.reset();
+
+                    // Clear success message after 5 seconds
+                    setTimeout(() => {
+                        formStatus.classList.add('hidden');
+                    }, 5000);
+                }, 1500);
+            });
+        }
+    </script>
+</body>
+
+</html>

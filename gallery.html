@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Gallery | Lakshya Educational Trust</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom config for navy blue theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#e8ecf1',
+                            100: '#cbd3e0',
+                            200: '#9eb0c4',
+                            300: '#708da8',
+                            400: '#436a8c',
+                            500: '#1a3a5c',
+                            600: '#152e4a',
+                            700: '#102338',
+                            800: '#0a1726',
+                            900: '#050c14',
+                        },
+                        accent: '#d4af37',
+                        'accent-light': '#f0e6c8',
+                        'warm-bg': '#f4f7fb',
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .gallery-item {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(26, 58, 92, 0.2);
+        }
+        .category-btn {
+            transition: all 0.2s ease;
+        }
+        .category-btn.active {
+            background-color: #d4af37;
+            color: #1a3a5c;
+        }
+        .footer-link-hover {
+            transition: all 0.2s ease;
+        }
+        .footer-link-hover:hover {
+            color: #d4af37;
+            transform: translateX(3px);
+        }
+        .social-icon {
+            transition: all 0.2s ease;
+        }
+        .social-icon:hover {
+            transform: translateY(-3px);
+            color: #d4af37 !important;
+        }
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            z-index: 1000;
+            cursor: pointer;
+        }
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 85%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        .lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .lightbox .close:hover {
+            color: #d4af37;
+        }
+        .lightbox .caption {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #fff;
+            background: rgba(0,0,0,0.7);
+            padding: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body class="bg-warm-bg font-sans antialiased">
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="sticky top-0 z-50 bg-navy-700 shadow-lg px-5 py-3 md:px-8 flex justify-between items-center flex-wrap border-b-2 border-accent">
+        <a href="index.html" class="heading" title="Lakshya Educational Trust">
+            <h1 class="text-2xl md:text-3xl font-bold text-accent tracking-wide">Lakshya</h1>
+            <h2 class="text-xs md:text-sm font-medium text-navy-100 tracking-wider mt-0.5">लक्ष्य – युवाओं को नयी दिशा</h2>
+        </a>
+        
+        <ul id="navList" class="hidden md:flex gap-6 lg:gap-8 items-center list-none">
+            <li><a href="index.html" class="font-semibold text-navy-100 hover:text-accent transition-all duration-200">Home</a></li>
+            <li><a href="about.html" class="font-semibold text-navy-100 hover:text-accent transition-all duration-200">About Us</a></li>
+            <li><a href="mission.html" class="font-semibold text-navy-100 hover:text-accent transition-all duration-200">Our Mission</a></li>
+            <li><a href="vision.html" class="font-semibold text-navy-100 hover:text-accent transition-all duration-200">Our Vision</a></li>
+            <li><a href="gallery.html" class="font-semibold text-accent border-b-2 border-accent transition-all duration-200">Gallery</a></li>
+            <li><a href="contact.html" class="font-semibold text-navy-100 hover:text-accent transition-all duration-200">Contact Us</a></li>
+        </ul>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden cursor-pointer flex flex-col gap-1.5" id="mobileMenuBtn">
+            <div class="w-7 h-0.5 bg-accent rounded-full"></div>
+            <div class="w-7 h-0.5 bg-accent rounded-full"></div>
+            <div class="w-7 h-0.5 bg-accent rounded-full"></div>
+        </div>
+    </nav>
+
+    <!-- Mobile dropdown menu -->
+    <div id="mobileDropdown" class="md:hidden hidden bg-navy-800 px-5 pb-4 shadow-lg rounded-b-2xl transition-all border-t border-navy-600">
+        <ul class="flex flex-col gap-3 list-none">
+            <li><a href="index.html" class="font-semibold text-navy-100 hover:text-accent py-2 border-b border-navy-600 block">Home</a></li>
+            <li><a href="about.html" class="font-semibold text-navy-100 hover:text-accent py-2 border-b border-navy-600 block">About Us</a></li>
+            <li><a href="mission.html" class="font-semibold text-navy-100 hover:text-accent py-2 border-b border-navy-600 block">Our Mission</a></li>
+            <li><a href="vision.html" class="font-semibold text-navy-100 hover:text-accent py-2 border-b border-navy-600 block">Our Vision</a></li>
+            <li><a href="gallery.html" class="font-semibold text-accent py-2 border-b border-navy-600 block">Gallery</a></li>
+            <li><a href="contact.html" class="font-semibold text-navy-100 hover:text-accent py-2 block">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- ==================== HERO SECTION ==================== -->
+        <section class="relative h-64 md:h-80 flex items-center">
+            <img src="https://picsum.photos/id/107/1920/500" alt="Gallery banner" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-navy-900/85 to-navy-800/70"></div>
+            <div class="relative z-10 max-w-4xl mx-auto px-6 text-center text-white">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Our <span class="text-accent">Gallery</span></h1>
+                <p class="text-lg md:text-xl text-navy-100">A glimpse into our journey — moments of impact, learning, and community action.</p>
+            </div>
+        </section>
+
+        <!-- ==================== CATEGORY FILTERS ==================== -->
+        <section class="py-8 px-5 max-w-7xl mx-auto">
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <button data-filter="all" class="category-btn active px-5 py-2 rounded-full bg-navy-600 text-white hover:bg-accent hover:text-navy-800 transition-all">All Photos</button>
+                <button data-filter="nukkad" class="category-btn px-5 py-2 rounded-full bg-navy-600 text-white hover:bg-accent hover:text-navy-800 transition-all">🎭 Nukkad Natak</button>
+                <button data-filter="jansunvai" class="category-btn px-5 py-2 rounded-full bg-navy-600 text-white hover:bg-accent hover:text-navy-800 transition-all">📢 Jan Sunvai</button>
+                <button data-filter="academic" class="category-btn px-5 py-2 rounded-full bg-navy-600 text-white hover:bg-accent hover:text-navy-800 transition-all">📚 Academic Students</button>
+                <button data-filter="counselling" class="category-btn px-5 py-2 rounded-full bg-navy-600 text-white hover:bg-accent hover:text-navy-800 transition-all">🎓 Career Counselling</button>
+                <button data-filter="ewscamp" class="category-btn px-5 py-2 rounded-full bg-navy-600 text-white hover:bg-accent hover:text-navy-800 transition-all">🏕️ EWS Camp 2011</button>
+            </div>
+        </section>
+
+        <!-- ==================== GALLERY GRID ==================== -->
+        <section class="py-4 px-5 max-w-7xl mx-auto pb-16">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5" id="galleryGrid">
+                <!-- Gallery items will be populated by JavaScript -->
+            </div>
+            
+            <!-- No results message -->
+            <div id="noResults" class="text-center py-12 hidden">
+                <i class="fas fa-camera text-5xl text-gray-300 mb-3"></i>
+                <p class="text-gray-500">No photos found in this category.</p>
+            </div>
+        </section>
+
+        <!-- ==================== STATISTICS / IMPACT NUMBERS ==================== -->
+        <section class="py-12 px-5 bg-navy-800 text-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl md:text-4xl font-bold text-accent">Moments That Matter</h2>
+                    <p class="text-navy-200 mt-2">15 years of impact captured through the lens</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div>
+                        <div class="text-3xl md:text-4xl font-bold text-accent">500+</div>
+                        <p class="text-navy-300 text-sm">Events Organized</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl md:text-4xl font-bold text-accent">10,000+</div>
+                        <p class="text-navy-300 text-sm">Lives Touched</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl md:text-4xl font-bold text-accent">50+</div>
+                        <p class="text-navy-300 text-sm">Awareness Campaigns</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl md:text-4xl font-bold text-accent">8</div>
+                        <p class="text-navy-300 text-sm">Free Libraries</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== LIGHTBOX MODAL ==================== -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img id="lightboxImg" src="" alt="">
+        <div id="lightboxCaption" class="caption"></div>
+    </div>
+
+    <!-- ==================== COMMON FOOTER ==================== -->
+    <footer class="bg-navy-800 text-white pt-12 pb-6">
+        <div class="container mx-auto px-5 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="mb-4">
+                        <h2 class="text-2xl font-bold text-accent">Lakshya</h2>
+                        <p class="text-xs text-navy-300 mt-0.5">लक्ष्य – युवाओं को नयी दिशा</p>
+                    </div>
+                    <p class="text-navy-200 text-sm leading-relaxed mb-4">Empowering youth through education, transparency, and social justice since 2009.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="social-icon text-navy-300 hover:text-accent"><i class="fab fa-facebook-f text-lg"></i></a>
+                        <a href="#" class="social-icon text-navy-300 hover:text-accent"><i class="fab fa-twitter text-lg"></i></a>
+                        <a href="#" class="social-icon text-navy-300 hover:text-accent"><i class="fab fa-instagram text-lg"></i></a>
+                        <a href="#" class="social-icon text-navy-300 hover:text-accent"><i class="fab fa-linkedin-in text-lg"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-accent mb-4 border-b border-navy-600 pb-2 inline-block">Quick Links</h3>
+                    <ul class="mt-3 space-y-2">
+                        <li><a href="index.html" class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i class="fas fa-home text-xs text-accent"></i> Home</a></li>
+                        <li><a href="about.html" class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i class="fas fa-info-circle text-xs text-accent"></i> About Us</a></li>
+                        <li><a href="mission.html" class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i class="fas fa-bullseye text-xs text-accent"></i> Our Mission</a></li>
+                        <li><a href="vision.html" class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i class="fas fa-eye text-xs text-accent"></i> Our Vision</a></li>
+                        <li><a href="gallery.html" class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i class="fas fa-images text-xs text-accent"></i> Gallery</a></li>
+                        <li><a href="contact.html" class="footer-link-hover text-navy-200 text-sm flex items-center gap-2"><i class="fas fa-envelope text-xs text-accent"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-accent mb-4 border-b border-navy-600 pb-2 inline-block">Our Focus</h3>
+                    <ul class="mt-3 space-y-2">
+                        <li class="flex items-start gap-2 text-navy-200 text-sm"><i class="fas fa-chalkboard-user text-accent text-xs mt-1"></i> Youth Leadership</li>
+                        <li class="flex items-start gap-2 text-navy-200 text-sm"><i class="fas fa-school text-accent text-xs mt-1"></i> School Transparency</li>
+                        <li class="flex items-start gap-2 text-navy-200 text-sm"><i class="fas fa-book-open text-accent text-xs mt-1"></i> Free Libraries</li>
+                        <li class="flex items-start gap-2 text-navy-200 text-sm"><i class="fas fa-gavel text-accent text-xs mt-1"></i> Legal Aid & RTI</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-accent mb-4 border-b border-navy-600 pb-2 inline-block">Get in Touch</h3>
+                    <ul class="mt-3 space-y-3">
+                        <li class="flex items-start gap-3 text-navy-200 text-sm"><i class="fas fa-map-marker-alt text-accent mt-1"></i> Kalyanpuri, Delhi - 110091</li>
+                        <li class="flex items-start gap-3 text-navy-200 text-sm"><i class="fas fa-phone-alt text-accent mt-1"></i> +91 98765 43210</li>
+                        <li class="flex items-start gap-3 text-navy-200 text-sm"><i class="fas fa-envelope text-accent mt-1"></i> info@lakshyatrust.org</li>
+                        <li class="flex items-start gap-3 text-navy-200 text-sm"><i class="fas fa-clock text-accent mt-1"></i> Mon - Sat: 10 AM - 6 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-navy-700 pt-6 mt-4 flex flex-col md:flex-row justify-between items-center text-navy-400 text-xs">
+                <p>&copy; 2024 Lakshya Educational Trust. All rights reserved.</p>
+                <div class="flex gap-4 mt-2 md:mt-0">
+                    <a href="#" class="hover:text-accent transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-accent transition">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileDropdown = document.getElementById('mobileDropdown');
+        if (mobileBtn && mobileDropdown) {
+            mobileBtn.addEventListener('click', () => {
+                mobileDropdown.classList.toggle('hidden');
+            });
+        }
+
+        // ==================== GALLERY DATA WITH CONVERTED URLs ====================
+        // All URLs converted to iili.io/xxxxx.jpg format as requested
+        
+        const galleryItems = [
+            // NUKKAD NATAK (5 images)
+            { id: 1, src: "https://iili.io/CCVz1Xn.jpg", title: "Nukkad Natak Performance", desc: "Street play raising awareness on social issues", category: "nukkad" },
+            { id: 2, src: "https://iili.io/CCVzA0v.jpg", title: "Nukkad Natak - Youth Participation", desc: "Local youth performing on women's safety", category: "nukkad" },
+            { id: 3, src: "https://iili.io/CCVzaeI.jpg", title: "Nukkad Natak - Education Rights", desc: "Dramatizing the importance of education", category: "nukkad" },
+            { id: 4, src: "https://iili.io/CCVzcbt.jpg", title: "Nukkad Natak - Community Gathering", desc: "Large audience watching the street play", category: "nukkad" },
+            { id: 5, src: "https://iili.io/CCVzWg4.jpg", title: "Nukkad Natak - Awareness Campaign", desc: "Spreading message through performing arts", category: "nukkad" },
+            
+            // JAN SUNVAI (6 images)
+            { id: 6, src: "https://iili.io/CCVAL8v.jpg", title: "Jan Sunvai - Public Hearing", desc: "Community voices being heard", category: "jansunvai" },
+            { id: 7, src: "https://iili.io/CCVAtup.jpg", title: "Jan Sunvai - Accountability Forum", desc: "Demanding transparency from officials", category: "jansunvai" },
+            { id: 8, src: "https://iili.io/CCVADwN.jpg", title: "Jan Sunvai - Community Meeting", desc: "Large gathering for public consultation", category: "jansunvai" },
+            { id: 9, src: "https://iili.io/CCVAscJ.jpg", title: "Jan Sunvai - Rights Awareness", desc: "Educating community about their rights", category: "jansunvai" },
+            { id: 10, src: "https://iili.io/CCVAyMX.jpg", title: "Jan Sunvai - Collective Action", desc: "United voices for justice", category: "jansunvai" },
+            { id: 11, src: "https://iili.io/CCVRoPe.jpg", title: "Jan Sunvai - Dialogue Session", desc: "Interactive discussion with stakeholders", category: "jansunvai" },
+            
+            // LAKSHYA ACADEMIC STUDENTS (7 images)
+            { id: 12, src: "https://iili.io/CCVGILv.jpg", title: "Academic Students - Classroom", desc: "Students engaged in learning", category: "academic" },
+            { id: 13, src: "https://iili.io/CCVGnmg.jpg", title: "Academic Students - Group Study", desc: "Collaborative learning session", category: "academic" },
+            { id: 14, src: "https://iili.io/CCVYbJs.jpg", title: "Academic Students - Exam Preparation", desc: "Focus and dedication", category: "academic" },
+            { id: 15, src: "https://iili.io/CCV7c3g.jpg", title: "Academic Students - Library Session", desc: "Reading at community library", category: "academic" },
+            { id: 16, src: "https://iili.io/CCV7v9f.jpg", title: "Academic Students - Mentorship", desc: "Guidance from volunteers", category: "academic" },
+            { id: 17, src: "https://iili.io/CCV7iFe.jpg", title: "Academic Students - Achievements", desc: "Celebrating academic success", category: "academic" },
+            { id: 18, src: "https://iili.io/CCV1Vtf.jpg", title: "Academic Students - Future Leaders", desc: "Young minds shaping tomorrow", category: "academic" },
+            
+            // LAKSHYA CAREER COUNSELLING (8 images)
+            { id: 19, src: "https://iili.io/CCVOIQ1.jpg", title: "Career Counselling - Guidance Session", desc: "Expert advice on career paths", category: "counselling" },
+            { id: 20, src: "https://iili.io/CCVe6iX.jpg", title: "Career Counselling - One-on-One", desc: "Personalized career guidance", category: "counselling" },
+            { id: 21, src: "https://iili.io/CCVv73u.jpg", title: "Career Counselling - Workshop", desc: "Group career awareness program", category: "counselling" },
+            { id: 22, src: "https://iili.io/CCVOvZ7.jpg", title: "Career Counselling - Youth Interaction", desc: "Discussing future opportunities", category: "counselling" },
+            { id: 23, src: "https://iili.io/CCVr7mG.jpg", title: "Career Counselling - Skill Development", desc: "Building employable skills", category: "counselling" },
+            { id: 24, src: "https://iili.io/CCVrCzv.jpg", title: "Career Counselling - Career Fair", desc: "Exposing youth to various careers", category: "counselling" },
+            { id: 25, src: "https://iili.io/CCVrAdX.jpg", title: "Career Counselling - Motivation Session", desc: "Inspiring young minds", category: "counselling" },
+            { id: 26, src: "https://iili.io/CCVrlLl.jpg", title: "Career Counselling - Planning Future", desc: "Goal setting for students", category: "counselling" },
+            
+            // LAKSHYA EWS CAMP 2011 (5 images)
+            { id: 27, src: "https://iili.io/CCVPchJ.jpg", title: "EWS Camp 2011 - Registration", desc: "Enrolling students for EWS benefits", category: "ewscamp" },
+            { id: 28, src: "https://iili.io/CCVP5kF.jpg", title: "EWS Camp 2011 - Awareness Drive", desc: "Spreading information about EWS scheme", category: "ewscamp" },
+            { id: 29, src: "https://iili.io/CCV4zjj.jpg", title: "EWS Camp 2011 - Parent Participation", desc: "Parents learning about education rights", category: "ewscamp" },
+            { id: 30, src: "https://iili.io/CCVPK79.jpg", title: "EWS Camp 2011 - Documentation", desc: "Helping families with paperwork", category: "ewscamp" },
+            { id: 31, src: "https://iili.io/CCVPW7t.jpg", title: "EWS Camp 2011 - Community Support", desc: "Ensuring equal education access", category: "ewscamp" },
+        ];
+
+        let currentFilter = "all";
+
+        function renderGallery() {
+            const grid = document.getElementById('galleryGrid');
+            const noResults = document.getElementById('noResults');
+            
+            const filtered = currentFilter === "all" 
+                ? galleryItems 
+                : galleryItems.filter(item => item.category === currentFilter);
+            
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+            
+            noResults.classList.add('hidden');
+            
+            grid.innerHTML = filtered.map(item => `
+                <div class="gallery-item bg-white rounded-xl overflow-hidden shadow-md" data-category="${item.category}" data-id="${item.id}">
+                    <div class="relative">
+                        <img src="${item.src}" alt="${item.title}" class="w-full h-56 object-cover" onerror="this.src='https://picsum.photos/id/20/400/300'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900/70 to-transparent flex items-end p-3 opacity-0 hover:opacity-100 transition-opacity">
+                            <p class="text-white text-sm font-medium">${item.desc}</p>
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-semibold text-navy-700 text-sm">${item.title}</h3>
+                        <p class="text-gray-500 text-xs mt-1"><i class="fas fa-eye text-accent mr-1"></i> Click to view</p>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Add click event to each gallery item for lightbox
+            document.querySelectorAll('.gallery-item').forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    const filteredArray = currentFilter === "all" ? galleryItems : galleryItems.filter(i => i.category === currentFilter);
+                    const data = filteredArray[index];
+                    if (data) {
+                        document.getElementById('lightboxImg').src = data.src;
+                        document.getElementById('lightboxCaption').innerHTML = `<strong>${data.title}</strong><br>${data.desc}`;
+                        document.getElementById('lightbox').classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Category filter buttons
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.getAttribute('data-filter');
+                renderGallery();
+            });
+        });
+
+        // Lightbox close functionality
+        const lightbox = document.getElementById('lightbox');
+        const closeBtn = document.querySelector('.lightbox .close');
+        
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+        }
+        
+        if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+        if (lightbox) {
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+            // Close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    closeLightbox();
+                }
+            });
+        }
+        
+        // Initial render
+        renderGallery();
+    </script>
+</body>
+</html>
