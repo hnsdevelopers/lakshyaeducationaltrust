@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Our Mission | Lakshya Educational Trust</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom config for navy blue theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#e8ecf1',
+                            100: '#cbd3e0',
+                            200: '#9eb0c4',
+                            300: '#708da8',
+                            400: '#436a8c',
+                            500: '#1a3a5c',      // primary navy
+                            600: '#152e4a',
+                            700: '#102338',
+                            800: '#0a1726',
+                            900: '#050c14',
+                        },
+                        accent: '#d4af37',        // gold accent for contrast
+                        'accent-light': '#f0e6c8',
+                        'warm-bg': '#f4f7fb',
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .mission-card-hover {
+            transition: all 0.3s ease;
+        }
+        .mission-card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -12px rgba(26, 58, 92, 0.2);
+            border-color: #d4af37;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #1a3a5c 0%, #0f2a44 100%);
+        }
+        .stat-card {
+            transition: transform 0.2s ease;
+        }
+        .stat-card:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="bg-warm-bg font-sans antialiased">
+
+    <!-- Navigation - Navy theme -->
+    <nav class="sticky top-0 z-50 bg-navy-700 shadow-lg px-5 py-3 md:px-8 flex justify-between items-center flex-wrap border-b-2 border-accent">
+        <div class="heading" title="Lakshya Educational Trust">
+            <h1 class="text-2xl md:text-3xl font-bold text-accent tracking-wide">Lakshya</h1>
+            <h2 class="text-xs md:text-sm font-medium text-navy-100 tracking-wider mt-0.5">Educational Trust</h2>
+        </div>
+        
+        <ul id="navList" class="hidden md:flex gap-6 lg:gap-8 items-center list-none">
+            <li class="font-semibold text-navy-100 hover:text-accent cursor-pointer transition-all duration-200">Home</li>
+            <li class="font-semibold text-navy-100 hover:text-accent cursor-pointer transition-all duration-200">About Us</li>
+            <li class="font-semibold text-accent border-b-2 border-accent cursor-pointer transition-all duration-200"><a href="#mission-main">Our Mission</a></li>
+            <li class="font-semibold text-navy-100 hover:text-accent cursor-pointer transition-all duration-200">Our Vision</li>
+            <li class="font-semibold text-navy-100 hover:text-accent cursor-pointer transition-all duration-200">Gallery</li>
+            <li class="font-semibold text-navy-100 hover:text-accent cursor-pointer transition-all duration-200">Contact Us</li>
+        </ul>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden cursor-pointer flex flex-col gap-1.5" id="mobileMenuBtn">
+            <div class="w-7 h-0.5 bg-accent rounded-full"></div>
+            <div class="w-7 h-0.5 bg-accent rounded-full"></div>
+            <div class="w-7 h-0.5 bg-accent rounded-full"></div>
+        </div>
+    </nav>
+
+    <!-- Mobile dropdown menu -->
+    <div id="mobileDropdown" class="md:hidden hidden bg-navy-800 px-5 pb-4 shadow-lg rounded-b-2xl transition-all border-t border-navy-600">
+        <ul class="flex flex-col gap-3 list-none">
+            <li class="font-semibold text-navy-100 hover:text-accent py-2 border-b border-navy-600 cursor-pointer">Home</li>
+            <li class="font-semibold text-navy-100 hover:text-accent py-2 border-b border-navy-600 cursor-pointer">About Us</li>
+            <li class="font-semibold text-accent py-2 border-b border-navy-600 cursor-pointer"><a href="#mission-main">Our Mission</a></li>
+            <li class="font-semibold text-navy-100 hover:text-accent py-2 border-b border-navy-600 cursor-pointer">Our Vision</li>
+            <li class="font-semibold text-navy-100 hover:text-accent py-2 border-b border-navy-600 cursor-pointer">Gallery</li>
+            <li class="font-semibold text-navy-100 hover:text-accent py-2 cursor-pointer">Contact Us</li>
+        </ul>
+    </div>
+
+    <main class="max-w-7xl mx-auto px-5 md:px-8 py-8 md:py-12" id="mission-main">
+        
+        <!-- Hero Section with Dummy Image -->
+        <div class="relative rounded-3xl overflow-hidden mb-16 shadow-xl">
+            <img src="https://picsum.photos/id/20/1400/400" alt="Students learning together" class="w-full h-64 md:h-96 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-navy-900/80 to-navy-700/60 flex items-center">
+                <div class="px-6 md:px-12 text-white max-w-3xl">
+                    <h1 class="text-4xl md:text-6xl font-bold text-accent mb-4">✦ Our Missions ✦</h1>
+                    <p class="text-lg md:text-xl text-navy-100 leading-relaxed">“लक्ष्य – युवाओं को नयी दिशा” — 15 years of fearless struggle for education, justice & empowerment. Transforming lives through unwavering commitment.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats / Impact Numbers Row -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-16">
+            <div class="bg-white rounded-xl p-5 text-center shadow-md border-b-4 border-accent stat-card">
+                <i class="fas fa-calendar-alt text-3xl text-navy-600 mb-2"></i>
+                <div class="text-3xl md:text-4xl font-bold text-navy-700">15+</div>
+                <p class="text-gray-600 text-sm">Years of Service</p>
+            </div>
+            <div class="bg-white rounded-xl p-5 text-center shadow-md border-b-4 border-accent stat-card">
+                <i class="fas fa-users text-3xl text-navy-600 mb-2"></i>
+                <div class="text-3xl md:text-4xl font-bold text-navy-700">10,000+</div>
+                <p class="text-gray-600 text-sm">Youth Empowered</p>
+            </div>
+            <div class="bg-white rounded-xl p-5 text-center shadow-md border-b-4 border-accent stat-card">
+                <i class="fas fa-gavel text-3xl text-navy-600 mb-2"></i>
+                <div class="text-3xl md:text-4xl font-bold text-navy-700">200+</div>
+                <p class="text-gray-600 text-sm">Legal battles & RTIs</p>
+            </div>
+            <div class="bg-white rounded-xl p-5 text-center shadow-md border-b-4 border-accent stat-card">
+                <i class="fas fa-book-open text-3xl text-navy-600 mb-2"></i>
+                <div class="text-3xl md:text-4xl font-bold text-navy-700">8+</div>
+                <p class="text-gray-600 text-sm">Free Libraries</p>
+            </div>
+        </div>
+
+        <!-- Core Principles Banner with Gold Accent -->
+        <div class="bg-navy-50 border-l-8 border-accent rounded-2xl p-6 md:p-8 shadow-md mb-14">
+            <h3 class="text-2xl md:text-3xl font-bold text-navy-800 flex items-center gap-3 mb-5">
+                <i class="fas fa-seedling text-accent text-2xl"></i> 
+                संकल्प की नींव | Core Principles That Guide Us
+            </h3>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="bg-white rounded-xl p-4 shadow-sm flex items-start gap-3">
+                    <i class="fas fa-home text-accent text-xl mt-1"></i>
+                    <p class="text-gray-700 font-medium">स्थायित्व का सबसे बड़ा आधार – समुदाय का विश्वास। हमारा हर कार्य जमीनी स्तर पर लोगों के भरोसे से संचालित होता है।</p>
+                </div>
+                <div class="bg-white rounded-xl p-4 shadow-sm flex items-start gap-3">
+                    <i class="fas fa-fist-raised text-accent text-xl mt-1"></i>
+                    <p class="text-gray-700 font-medium">संसाधनों की कमी कभी संकल्प को नहीं रोक सकती। सीमित साधनों के बावजूद हमने बड़े बदलाव किए हैं।</p>
+                </div>
+                <div class="bg-white rounded-xl p-4 shadow-sm flex items-start gap-3">
+                    <i class="fas fa-search text-accent text-xl mt-1"></i>
+                    <p class="text-gray-700 font-medium">पारदर्शिता, प्रतिबद्धता और सहभागिता – संघर्ष की आधारशिला। हम जवाबदेही को सबसे ऊपर रखते हैं।</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Paragraph Content Block (Rich Information) -->
+        <div class="mb-14">
+            <div class="flex flex-col md:flex-row gap-8 items-center bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="md:w-1/2">
+                    <img src="https://picsum.photos/id/159/600/400" alt="Community work" class="w-full h-64 md:h-full object-cover">
+                </div>
+                <div class="md:w-1/2 p-6 md:p-8">
+                    <h2 class="text-2xl md:text-3xl font-bold text-navy-800 mb-4">Our Journey of 15 Years: A Legacy of Change</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">Founded in 2009 with just 22 young volunteers, Lakshya has grown into a movement that challenges systemic corruption, empowers marginalized communities, and provides quality education to those who need it most. Our founder, Sanju, started this initiative in the resettlement colonies of East Delhi — Kalyanpuri and Trilokpuri — where basic amenities like clean water, safe public spaces, and functional schools were scarce.</p>
+                    <p class="text-gray-700 leading-relaxed">Over the past decade and a half, we have filed hundreds of RTI applications, exposed corruption in government offices, ensured legal action against erring officials, and brought about tangible improvements in public service delivery. Our work has touched thousands of lives, from school children getting midday meals to women finding safer public transport.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Primary Mission Grid (6 cards with detailed content) -->
+        <h2 class="text-3xl md:text-4xl font-bold text-navy-800 text-center mb-8 mt-6">Our Core Mission Pillars</h2>
+        <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">These six pillars define our approach towards building a just, educated and empowered society.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <!-- Card 1 with detailed paragraph -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg border border-navy-100 mission-card-hover">
+                <div class="text-4xl mb-4 text-accent"><i class="fas fa-chalkboard-user"></i></div>
+                <h3 class="text-2xl font-bold text-navy-700 mb-3">Youth Leadership</h3>
+                <p class="text-gray-600 leading-relaxed">We believe that youth are not just tomorrow's leaders but today's change-makers. Our leadership development programs train young people in advocacy, public speaking, and civic engagement. Over 3,000 youth have been mentored, many now leading their own community initiatives.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg border border-navy-100 mission-card-hover">
+                <div class="text-4xl mb-4 text-accent"><i class="fa-solid fa-school"></i></div>
+                <h3 class="text-2xl font-bold text-navy-700 mb-3">Govt. School Transparency</h3>
+                <p class="text-gray-600 leading-relaxed">Through sustained RTI campaigns and community monitoring, we have forced several government schools to open locked toilets, utilize allocated budgets, and improve teaching standards. Our interventions have directly benefited over 5,000 students in East Delhi.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg border border-navy-100 mission-card-hover">
+                <div class="text-4xl mb-4 text-accent"><i class="fas fa-book"></i></div>
+                <h3 class="text-2xl font-bold text-navy-700 mb-3">Free Libraries for All</h3>
+                <p class="text-gray-600 leading-relaxed">Financial constraints should never be a barrier to knowledge. We have established 8 free community libraries across Delhi-NCR, providing books, newspapers, and competitive exam materials to underprivileged students, benefiting more than 2,500 learners annually.</p>
+            </div>
+            <!-- Card 4 -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg border border-navy-100 mission-card-hover">
+                <div class="text-4xl mb-4 text-accent"><i class="fas fa-tree"></i></div>
+                <h3 class="text-2xl font-bold text-navy-700 mb-3">Environmental Conservation</h3>
+                <p class="text-gray-600 leading-relaxed">Our green campaigns include tree plantation drives, waste management awareness, and river conservation projects. We have planted over 10,000 saplings and conducted 50+ awareness workshops in slum clusters about sustainable living.</p>
+            </div>
+            <!-- Card 5 -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg border border-navy-100 mission-card-hover">
+                <div class="text-4xl mb-4 text-accent"><i class="fas fa-hand-holding-heart"></i></div>
+                <h3 class="text-2xl font-bold text-navy-700 mb-3">Rights of Vulnerable Groups</h3>
+                <p class="text-gray-600 leading-relaxed">Women, elderly, persons with disabilities and children remain at the center of our rights-based programs. We provide legal aid, health camps, and awareness sessions to ensure they receive government entitlements and live with dignity.</p>
+            </div>
+            <!-- Card 6 -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg border border-navy-100 mission-card-hover">
+                <div class="text-4xl mb-4 text-accent"><i class="fas fa-file-contract"></i></div>
+                <h3 class="text-2xl font-bold text-navy-700 mb-3">Policy Intervention</h3>
+                <p class="text-gray-600 leading-relaxed">We work at the macro level, drafting policy recommendations and collaborating with government bodies to ensure systemic accountability. Our advocacy has led to administrative reforms in public libraries and transport services in Delhi.</p>
+            </div>
+        </div>
+
+        <!-- Extra Missions with Dummy Image and Rich Text -->
+        <div class="bg-navy-800 rounded-3xl overflow-hidden shadow-xl mb-16">
+            <div class="grid md:grid-cols-2">
+                <div class="p-6 md:p-8 text-white">
+                    <h3 class="text-2xl md:text-3xl font-bold text-accent mb-4 flex items-center gap-2">
+                        <i class="fas fa-fire"></i> Ground Impact Initiatives
+                    </h3>
+                    <p class="text-navy-100 mb-5 leading-relaxed">Beyond our core pillars, we have executed several high-impact campaigns that have transformed lives and systems. Each initiative stems from grassroots realities and a deep commitment to justice.</p>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3"><i class="fas fa-check-circle text-accent mt-1"></i><span class="text-navy-50">RTI for Change – Over 200 RTIs filed exposing corruption in schools, hospitals and municipal offices.</span></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-check-circle text-accent mt-1"></i><span class="text-navy-50">Free Spoken English Classes – 1,200+ underprivileged youth trained for better job opportunities.</span></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-check-circle text-accent mt-1"></i><span class="text-navy-50">EWS & MDM Reforms – Ensured proper implementation of Right to Education and Mid-Day Meal schemes in 15+ schools.</span></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-check-circle text-accent mt-1"></i><span class="text-navy-50">Women's Safety on Blue Line Buses – Forced DTC to deploy 30+ government buses on Route 33, benefitting 50,000+ daily commuters.</span></div>
+                        <div class="flex items-start gap-3"><i class="fas fa-check-circle text-accent mt-1"></i><span class="text-navy-50">Legal battles against corruption – Won landmark cases resulting in suspension of corrupt officials and policy changes.</span></div>
+                    </div>
+                </div>
+                <div class="h-64 md:h-auto">
+                    <img src="https://picsum.photos/id/91/600/500" alt="Impact initiative workshop" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+
+        <!-- Sankalp Section + Parallax style dummy image -->
+        <div class="relative rounded-2xl overflow-hidden my-16 shadow-xl">
+            <img src="https://picsum.photos/id/26/1400/300" alt="Youth rally" class="w-full h-48 md:h-64 object-cover">
+            <div class="absolute inset-0 bg-navy-900/70 flex items-center justify-center p-6">
+                <div class="text-center text-white max-w-3xl">
+                    <i class="fas fa-quote-left text-4xl text-accent mb-3"></i>
+                    <p class="text-xl md:text-2xl font-semibold leading-relaxed">हमने हमेशा स्वयं को समाज में एक जागरूक प्रतिपक्ष की भूमिका में देखा है। ऐसी आवाज के रूप में, जो सत्ता से सवाल पूछती है, जवाबदेही की मांग करती है और हाशिये पर खड़े लोगों के अधिकारों के लिए संघर्ष करती है।</p>
+                    <p class="mt-4 text-navy-100">— संकल्प: लक्ष्य युवाओं को नयी दिशा</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Three Additional Detailed Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 my-12">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <img src="https://picsum.photos/id/42/400/200" alt="Library" class="w-full h-40 object-cover">
+                <div class="p-5">
+                    <i class="fas fa-landmark text-2xl text-accent mb-2 block"></i>
+                    <h3 class="text-xl font-bold text-navy-700 mb-2">Library as a Living Hub</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Our vision is to establish libraries that go beyond silent reading — they become centers for debate, digital literacy, career guidance and community dialogues. The first such library at Kalyanpuri now serves 500+ active members daily.</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <img src="https://picsum.photos/id/24/400/200" alt="English class" class="w-full h-40 object-cover">
+                <div class="p-5">
+                    <i class="fas fa-language text-2xl text-accent mb-2 block"></i>
+                    <h3 class="text-xl font-bold text-navy-700 mb-2">Communication & Career Access</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">We provide free spoken English and soft skills training to youth from economically weaker sections. Many of our alumni have secured jobs in retail, BPO and hospitality sectors, breaking the cycle of poverty.</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <img src="https://picsum.photos/id/121/400/200" alt="Legal awareness" class="w-full h-40 object-cover">
+                <div class="p-5">
+                    <i class="fas fa-gavel text-2xl text-accent mb-2 block"></i>
+                    <h3 class="text-xl font-bold text-navy-700 mb-2">Fearless Legal Fight</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Our legal cell has taken on corrupt officials, private bus mafia, and negligent government departments. We believe in the power of the law to create systemic change. "न झुकना है, न बिकना है, और न रुकना है।"</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- More Rich Content: How We Work -->
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-md border-t-4 border-accent my-12">
+            <h3 class="text-2xl font-bold text-navy-800 mb-4 flex items-center gap-2"><i class="fas fa-cogs text-accent"></i> How We Operate: The Lakshya Model</h3>
+            <p class="text-gray-700 leading-relaxed mb-3">Lakshya has never taken funding from any government or large corporate donor. Our work is sustained entirely by community trust, small individual donations, and the unwavering commitment of our volunteers. This independence allows us to fearlessly question power and demand accountability without any conflict of interest.</p>
+            <p class="text-gray-700 leading-relaxed">We follow a three-step approach: <strong class="text-navy-700">Identify grievance → Legal/RTI intervention → Community-led follow up</strong>. Every campaign begins with listening to the most marginalized voices. We then use legal tools like RTI, public hearings, and court cases to enforce rights. Finally, we train local youth to monitor progress, ensuring long-term sustainability.</p>
+        </div>
+
+        <!-- Final Community Footer Quote -->
+        <div class="text-center bg-navy-50 rounded-3xl py-10 px-6 border border-navy-200 shadow-md mt-12">
+            <i class="fas fa-quote-right text-4xl text-accent opacity-50 mb-3"></i>
+            <p class="text-xl md:text-2xl font-medium text-navy-800 max-w-3xl mx-auto">"लक्ष्य का सफर" — 15 वर्षों का संघर्ष, समर्पण और सामूहिक प्रयास। यह यात्रा इस बात का प्रमाण है कि दृढ़ संकल्प, सही उद्देश्य और सामूहिक प्रयासों से सबसे कठिन संघर्ष भी सफलता में परिवर्तित किए जा सकते हैं।</p>
+            <div class="mt-6">
+                <p class="text-navy-600 font-semibold">हम आज भी उसी विश्वास के साथ आगे बढ़ रहे हैं:</p>
+                <p class="text-accent font-bold text-lg mt-2">शिक्षा अवसर बने, ईमानदारी ताकत बने, और हर युवा कहे – मैं स्वयं बदलाव बनूँगा।</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileDropdown = document.getElementById('mobileDropdown');
+        if (mobileBtn && mobileDropdown) {
+            mobileBtn.addEventListener('click', () => {
+                mobileDropdown.classList.toggle('hidden');
+            });
+        }
+        // Smooth scroll for mission link (mobile and desktop)
+        document.querySelectorAll('a[href="#mission-main"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('mission-main').scrollIntoView({ behavior: 'smooth' });
+                if (mobileDropdown) mobileDropdown.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
